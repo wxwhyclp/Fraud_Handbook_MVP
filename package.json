@@ -1,21 +1,21 @@
 {
-  "name": "mvp-ready-for-playtesting-fraud-handbook",
+  "name": "fraud_handbook_mvp",
   "version": "0.0.2",
   "description": "A educational games made for CISC374 groupwork, using TypeScript, webpack, and Github Pages.",
-  "homepage": "https://github.com/Spring-2021-CISC374/mvp-ready-for-playtesting-fraud-handbook#readme",
+  "homepage": "https://github.com/Spring-2021-CISC374/Fraud_Handbook_MVP",
   "main": "index.js",
   "game": {
-    "url": "mvp-ready-for-playtesting-fraud-handbook",
+    "url": "https://github.com/Spring-2021-CISC374/Fraud_Handbook_MVP",
     "shortName": "Fbook",
     "name": "Fraud Handbook"
   },
   "author": {
     "name": "Haoyu Wang， Jiabao Guo, Yunfan Zhou, Haosen Wang",
-    "url": "https://github.com/Spring-2021-CISC374/mvp-ready-for-playtesting-fraud-handbook"
+    "url": "https://github.com/Spring-2021-CISC374/Fraud_Handbook_MVP"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Spring-2021-CISC374/mvp-ready-for-playtesting-fraud-handbook"
+    "url": "https://github.com/Spring-2021-CISC374/Fraud_Handbook_MVP"
   },
   "scripts": {
     "start": "webpack-dev-server --config config/webpack.dev.js",
