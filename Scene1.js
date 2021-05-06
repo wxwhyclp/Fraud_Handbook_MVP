@@ -27,7 +27,7 @@ class Scene1 extends Phaser.Scene {
         // let btn2 = this.add.text(500, 300, 'Play Game')
         // var btn1 = this.add.sprite(300, 350, 'playButton').setInteractive();
         // btn1.on('pointerdown', () => {this.scene.start('mainPage');});
-        var btn1 = this.add.text(300, 380, 'Start game').setInteractive();
+        var btn1 = this.add.text(300, 350, 'Start game').setInteractive();
         btn1.on('pointerdown', () => { this.scene.start('s1Page'); });
 
 
@@ -51,8 +51,8 @@ class Scene1 extends Phaser.Scene {
         //   this.scene.start('gamepage1');
         // }); // Start the main game.
 
-        //this.add.text(300, 500, 'Exit');
-        var btn2 = this.add.text(300, 460, 'Exit').setInteractive();
+        this.add.text(300, 500, 'Exit');
+        var btn2 = this.add.text(300, 500, 'Exit').setInteractive();
         btn2.on('pointerdown', () => { this.scene.start('thankpage'); });
 
         

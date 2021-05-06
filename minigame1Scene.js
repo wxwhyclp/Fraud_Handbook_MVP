@@ -29,11 +29,16 @@ class minigame1Scene extends Phaser.Scene {
         this.enemies.add(this.danger4);
         this.enemies.add(this.danger5);
 
+        this.charmovespeed = 100;
+        this.speedup = 0;
+        this.time = 0;
+        
+
         this.clues = this.physics.add.group();
         this.traps = this.physics.add.group();
         this.physics.world.setBoundsCollision();
 
-        for (var i = 0; i < 5; i++) {
+    
             var clue = this.physics.add.sprite(16, 16, 'clue');
             this.clues.add(clue);
             clue.setRandomPosition(0, 0, 800, 600);
@@ -42,7 +47,6 @@ class minigame1Scene extends Phaser.Scene {
             clue.setCollideWorldBounds(true);
             clue.setBounce(1);
 
-        }
 
         //for (var i = 0; i < 2; i++) {
         //    var trap = this.physics.add.sprite(16, 16, 'virus');
@@ -76,16 +80,16 @@ class minigame1Scene extends Phaser.Scene {
     }
 
     PickUps(char, clue) {
-        clue.disableBody(true, true);
         this.score += 1;
         this.scoreBoard.setText('Score: ' + this.score);
+        clue.setRandomPosition(0, 0, 800, 600);
         //this.text1 = this.add.text(100, 50, "You get clues: " + this.score);
         //var scoreFormated = this.zeroPad(this.score, 6);
         //this.scoreLabel.text = "SCORE " + scoreFormated;
         //this.text1.disableBody(true, true);
         //this.text1 = this.add.text(50, 50, "You get clues: " + scoreFormated);
         //this.text1.text = ("You get clues: " + scoreFormated);
-        if(this.score == 5){
+        if(this.score == 6){
             this.game1win();
         }
     }
@@ -101,13 +105,22 @@ class minigame1Scene extends Phaser.Scene {
     game1win(){
         //numclue = this.score;
         //this.scene.start('mainPage');
-        this.scene.start('level2Page');
+        this.scene.start('story1Page');
     }
 
 
-
     update() {
+        
 
+        if (this.speedup = 1) {
+            this.time += 1;
+        }
+
+        if (this.time == 100) {
+            this.charmovespeed = 100;
+            this.time = 0;
+            this.speedup = 0;
+        }
 
         this.moveDanger(this.danger1, 1);
         this.moveDanger(this.danger2, 1);
@@ -129,15 +142,20 @@ class minigame1Scene extends Phaser.Scene {
         this.char.setVelocity(0);
 
         if (this.cursorKeys.left.isDown) {
-            this.char.setVelocityX(-100);
+            this.char.setVelocityX(-this.charmovespeed);
         } else if (this.cursorKeys.right.isDown) {
-            this.char.setVelocityX(100);
+            this.char.setVelocityX(this.charmovespeed);
         }
 
         if (this.cursorKeys.up.isDown) {
-            this.char.setVelocityY(-100);
+            this.char.setVelocityY(-this.charmovespeed);
         } else if (this.cursorKeys.down.isDown) {
-            this.char.setVelocityY(100);
+            this.char.setVelocityY(this.charmovespeed);
+        }
+
+        if (this.cursorKeys.shift.isDown) {
+            this.speedup = 1;
+            this.charmovespeed = 150;
         }
     }
 

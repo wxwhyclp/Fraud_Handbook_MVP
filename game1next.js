@@ -11,7 +11,7 @@ class game1next extends Phaser.Scene {
        // this.music_1 = game.add.audio('bgm', 0.8, true);
        // this.music_1.play();
         this.clues = this.physics.add.group();
-        this.traps = this.physics.add.group();
+        
         this.physics.world.setBoundsCollision();
 
         for (var i = 0; i < 5; i++) {
@@ -37,7 +37,8 @@ class game1next extends Phaser.Scene {
         this.scoreBoard = this.add.text(10, 5, "SCORE: 0", { fontSize: '32px', fill: '#f00' });
 
         this.physics.add.overlap(this.char, this.clues, this.PickUps, null, this);
-        this.physics.add.overlap(this.char, this.enemies, this.decreasePoint, null, this);
+
+        
 
         //this.text1 = this.add.text(50, 50, "You get clues: " + this.score);
         // score
@@ -45,6 +46,10 @@ class game1next extends Phaser.Scene {
         //this.scoreLabel = this.add.bitmapText(10, 5, "pixelFont", "SCORE " + scoreFormated  , 16);
         //this.text1 = this.add.text(50, 50, "You get clues: " + scoreFormated);
 
+    }
+
+    PickUps(char, clue) {
+        this.scene.start("sl3");
     }
 
     destroyShip(pointer, gameObject) {
@@ -62,7 +67,7 @@ class game1next extends Phaser.Scene {
     game1win() {
         //numclue = this.score;
         //this.scene.start('mainPage');
-        this.scene.start('game1Success');
+        this.scene.start('story3Page');
     }
 
 

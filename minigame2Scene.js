@@ -8,13 +8,13 @@ class minigame2Scene extends Phaser.Scene {
         this.background = this.add.tileSprite(0, 0, 800, 600, "minigame2_background");
         this.background.setOrigin(0, 0);
 
-        var X1 = Phaser.Math.Between(0, 800);
-        var X2 = Phaser.Math.Between(0, 800);
-        var X3 = Phaser.Math.Between(0, 800);
+        var X1 = Phaser.Math.Between(0, 750);
+        var X2 = Phaser.Math.Between(0, 750);
+        var X3 = Phaser.Math.Between(0, 750);
 
-        var Y1 = Phaser.Math.Between(0, 600);
-        var Y2 = Phaser.Math.Between(0, 600);
-        var Y3 = Phaser.Math.Between(0, 600);
+        var Y1 = Phaser.Math.Between(0, 550);
+        var Y2 = Phaser.Math.Between(0, 550);
+        var Y3 = Phaser.Math.Between(0, 550);
 
         this.ship1 = this.add.sprite(X1, Y1, "shield");
         this.ship2 = this.add.sprite(X2, Y2, "shield2");

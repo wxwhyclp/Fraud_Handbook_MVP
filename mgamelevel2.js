@@ -29,26 +29,29 @@ class level2 extends Phaser.Scene {
         this.enemies.add(this.danger4);
         this.enemies.add(this.danger5);
 
+        this.charmovespeed = 100;
+        this.speedup = 0;
+        this.time = 0;
+
         this.clues = this.physics.add.group();
         this.traps = this.physics.add.group();
         this.physics.world.setBoundsCollision();
 
-        for (var i = 0; i < 5; i++) {
+       
             var clue = this.physics.add.sprite(16, 16, 'clue');
             this.clues.add(clue);
-            clue.setRandomPosition(0, 0, 800, 600);
+            clue.setRandomPosition(0, 0, 750, 550);
 
             clue.setVelocity(50, 50);
             clue.setCollideWorldBounds(true);
             clue.setBounce(1);
 
-        }
 
-        for (var i = 0; i < 2; i++) {
+        for (var i = 0; i < 3; i++) {
             var trap = this.physics.add.sprite(16, 16, 'virus');
 
             this.traps.add(trap);
-            trap.setRandomPosition(0, 0, 800, 600);
+            trap.setRandomPosition(0, 0, 750, 550);
 
             trap.setVelocity(50, 50);
             trap.setCollideWorldBounds(true);
@@ -80,6 +83,7 @@ class level2 extends Phaser.Scene {
         clue.disableBody(true, true);
         this.score += 1;
         this.scoreBoard.setText('Score: ' + this.score);
+        clue.setRandomPosition(0, 0, 800, 600);
         //this.text1 = this.add.text(100, 50, "You get clues: " + this.score);
         //var scoreFormated = this.zeroPad(this.score, 6);
         //this.scoreLabel.text = "SCORE " + scoreFormated;
@@ -92,23 +96,31 @@ class level2 extends Phaser.Scene {
     }
 
     PickTraps(char, trap) {
-        this.scene.start('losePage');
+        this.scene.start('sl2');
     }
 
     decreasePoint(char, enemy) {
-        this.scene.start('losePage');
+        this.scene.start('sl2');
     }
 
     game1win() {
         //numclue = this.score;
         //this.scene.start('mainPage');
-        this.scene.start('game1nextPage');
+        this.scene.start('story2Page');
     }
 
 
 
     update() {
+        if (this.speedup = 1) {
+            this.time += 1;
+        }
 
+        if (this.time == 100) {
+            this.charmovespeed = 100;
+            this.time = 0;
+            this.speedup = 0;
+        }
 
         this.moveDanger(this.danger1, 1);
         this.moveDanger(this.danger2, 1);
@@ -129,15 +141,20 @@ class level2 extends Phaser.Scene {
         this.char.setVelocity(0);
 
         if (this.cursorKeys.left.isDown) {
-            this.char.setVelocityX(-100);
+            this.char.setVelocityX(-this.charmovespeed);
         } else if (this.cursorKeys.right.isDown) {
-            this.char.setVelocityX(100);
+            this.char.setVelocityX(this.charmovespeed);
         }
 
         if (this.cursorKeys.up.isDown) {
-            this.char.setVelocityY(-100);
+            this.char.setVelocityY(-this.charmovespeed);
         } else if (this.cursorKeys.down.isDown) {
-            this.char.setVelocityY(100);
+            this.char.setVelocityY(this.charmovespeed);
+        }
+
+        if (this.cursorKeys.shift.isDown) {
+            this.speedup = 1;
+            this.charmovespeed = 150;
         }
     }
 
