@@ -12,15 +12,17 @@ class minigame2Scene extends Phaser.Scene {
         var X2 = Phaser.Math.Between(0, 750);
         var X3 = Phaser.Math.Between(0, 750);
 
-        var Y1 = Phaser.Math.Between(0, 550);
-        var Y2 = Phaser.Math.Between(0, 550);
-        var Y3 = Phaser.Math.Between(0, 550);
+        var Y1 = Phaser.Math.Between(0, 520);
+        var Y2 = Phaser.Math.Between(0, 520);
+        var Y3 = Phaser.Math.Between(0, 520);
 
         this.ship1 = this.add.sprite(X1, Y1, "shield");
-        this.ship2 = this.add.sprite(X2, Y2, "shield2");
-        this.ship3 = this.add.sprite(X3, Y3, "shield3");
+        this.ship2 = this.add.sprite(X2, Y2, "shield");
+        this.ship3 = this.add.sprite(X3, Y3, "shield");
 
+        this.polic = this.physics.add.group();
         this.poli = this.add.sprite(0, 0, "po");
+        this.polic.add(this.poli);
 
         this.enemies = this.physics.add.group();
         this.enemies.add(this.ship1);
@@ -68,7 +70,7 @@ class minigame2Scene extends Phaser.Scene {
             projectile.destroy();
         });
 
-        this.physics.add.overlap(this.player, this.powerUps, this.pickPowerUp, null, this);
+        //this.physics.add.overlap(this.player, this.powerUps, this.pickPowerUp, null, this);
 
         this.physics.add.overlap(this.player, this.enemies, this.hurtPlayer, null, this);
 
@@ -83,11 +85,11 @@ class minigame2Scene extends Phaser.Scene {
         this.scene.start("lose2Page");
     }
 
-    pickPowerUp(player, powerUp) {
-        this.score -= 1;
-        this.scoreBoard.setText('Shield break: ' + this.score);
-        powerUp.setRandomPosition(0, 0, 750, 550);
-    }
+    //pickPowerUp(player, powerUp) {
+     //   this.score -= 1;
+      //  this.scoreBoard.setText('Shield break: ' + this.score);
+     //   powerUp.setRandomPosition(0, 0, 750, 550);
+    //}
 
     hurtPlayer(player, enemy) {
         this.score -= 1;
@@ -101,8 +103,8 @@ class minigame2Scene extends Phaser.Scene {
         projectile.destroy();
         enemy.setRandomPosition(0, 0, 750, 550);
 
-        if (this.score == 6) {
-            this.scene.start('resultPage');
+        if (this.score == 5) {
+            this.scene.start('cm');
         }
     }
 
@@ -137,7 +139,7 @@ class minigame2Scene extends Phaser.Scene {
 
     timeMove() {
         this.count += 1;
-        if (this.count == 40) {
+        if (this.count == 185) {
             this.time += 1;
             this.timeBoard.setText('Time: ' + this.time);
             this.count = 0;

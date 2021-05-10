@@ -39,8 +39,14 @@ class preloadScene extends Phaser.Scene {
         this.load.image("po", "assets/img/police.png");
 
         this.load.image("tutor", "assets/img/tuto.png");
-       //this.load.audio('bgm', 'assets/img/bgm.mp3');
 
+        this.load.image("coin", "assets/img/coin.png");
+
+        this.load.image("wb", "assets/img/workbox.png");
+
+        this.load.image("chaseb", "assets/img/chaseb.png");
+       //this.load.audio('bgm', 'assets/img/bgm.mp3');
+        this.load.image("cback", "assets/img/coinback.png");
         this.load.spritesheet("explosion", "assets/img/explosion.png", {
             frameWidth: 16,
             frameHeight: 16

@@ -10,7 +10,7 @@ class information extends Phaser.Scene {
 
         this.character = this.add.image(600, 200, "character");
 
-        var btn1 = this.add.text(650, 550, 'Back').setInteractive();
+        var btn1 = this.add.text(650, 550, 'Back', { fontSize: '20px', fill: '#ff0' }).setInteractive();
         btn1.on('pointerdown', () => { this.scene.start('mainPage'); });
 
         this.add.text(100, 200, "Target: Your Boss");

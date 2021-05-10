@@ -12,7 +12,7 @@ class s2 extends Phaser.Scene {
         //this.add.text(200, 400, "and through your understanding of your superiors,");
         //this.add.text(250, 500, " you also want to try to get the 'salary' you think is your due through network fraud.");
 
-        var btn_back = this.add.text(100, 500, 'Next').setInteractive();
+        var btn_back = this.add.text(100, 500, 'Next', { fontSize: '20px', fill: '#ff0' }).setInteractive();
         btn_back.on('pointerdown', () => { this.scene.start('s3Page'); });
     }
 }

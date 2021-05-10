@@ -47,13 +47,25 @@ class level2 extends Phaser.Scene {
             clue.setBounce(1);
 
 
-        for (var i = 0; i < 3; i++) {
+        for (var i = 0; i < 2; i++) {
             var trap = this.physics.add.sprite(16, 16, 'virus');
 
             this.traps.add(trap);
             trap.setRandomPosition(0, 0, 750, 550);
 
             trap.setVelocity(50, 50);
+            trap.setCollideWorldBounds(true);
+            trap.setBounce(1);
+
+        }
+
+        for (var i = 0; i < 2; i++) {
+            var trap = this.physics.add.sprite(16, 16, 'virus');
+
+            this.traps.add(trap);
+            trap.setRandomPosition(0, 0, 750, 550);
+
+            trap.setVelocity(-50, -50);
             trap.setCollideWorldBounds(true);
             trap.setBounce(1);
 
@@ -80,7 +92,6 @@ class level2 extends Phaser.Scene {
     }
 
     PickUps(char, clue) {
-        clue.disableBody(true, true);
         this.score += 1;
         this.scoreBoard.setText('Score: ' + this.score);
         clue.setRandomPosition(0, 0, 800, 600);
@@ -90,7 +101,7 @@ class level2 extends Phaser.Scene {
         //this.text1.disableBody(true, true);
         //this.text1 = this.add.text(50, 50, "You get clues: " + scoreFormated);
         //this.text1.text = ("You get clues: " + scoreFormated);
-        if (this.score == 5) {
+        if (this.score == 3) {
             this.game1win();
         }
     }

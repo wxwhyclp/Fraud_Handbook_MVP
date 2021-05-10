@@ -12,7 +12,7 @@ class s3 extends Phaser.Scene {
 
        
 
-        var btn_back = this.add.text(100, 500, 'Next').setInteractive();
+        var btn_back = this.add.text(100, 500, 'Next', { fontSize: '20px', fill: '#ff0' }).setInteractive();
         btn_back.on('pointerdown', () => { this.scene.start('mainPage'); });
     }
 }

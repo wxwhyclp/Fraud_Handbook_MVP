@@ -66,6 +66,7 @@ class minigame1Scene extends Phaser.Scene {
         this.cursorKeys = this.input.keyboard.createCursorKeys();
         this.score = 0;
         this.scoreBoard = this.add.text(10, 5, "SCORE: 0", {fontSize: '32px', fill: '#f00'});
+        this.add.text(10, 30, "Goal: 5", {fontSize: '20px', fill: '#00f'});
 
         this.physics.add.overlap(this.char, this.clues, this.PickUps, null, this);
         this.physics.add.overlap(this.char, this.traps, this.PickTraps, null, this);
@@ -89,7 +90,7 @@ class minigame1Scene extends Phaser.Scene {
         //this.text1.disableBody(true, true);
         //this.text1 = this.add.text(50, 50, "You get clues: " + scoreFormated);
         //this.text1.text = ("You get clues: " + scoreFormated);
-        if(this.score == 6){
+        if(this.score == 5){
             this.game1win();
         }
     }

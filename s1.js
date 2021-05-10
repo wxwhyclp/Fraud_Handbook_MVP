@@ -13,7 +13,7 @@ class s1 extends Phaser.Scene {
        // this.music_1.play();
         this.add.text(100, 300, "At home you have nothing to do but watch TV every day \nand mentally curse your boss for firing you.");
 
-        var btn_back = this.add.text(100, 500, 'Next').setInteractive();
+        var btn_back = this.add.text(100, 500, 'Next', { fontSize: '20px', fill: '#ff0' }).setInteractive();
         btn_back.on('pointerdown', () => { this.scene.start('s2Page'); });
 
         //testing block

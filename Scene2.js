@@ -17,7 +17,7 @@ class Scene2 extends Phaser.Scene {
         var btn_test_collect = this.add.sprite(340, 180,'collect_button').setInteractive();
         btn_test_collect.on('pointerdown', () => { this.scene.start('shopPage'); });
 
-        var btn_test_target = this.add.text(610, 100, 'Target Information').setInteractive();
+        var btn_test_target = this.add.text(580, 100, 'Target Information', { fill: '#0f0' }).setInteractive();
         btn_test_target.on('pointerdown', () => { this.scene.start('informationPage'); });
 
         var btn_test_result = this.add.sprite(600, 252, 'result_button').setInteractive();

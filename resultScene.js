@@ -11,10 +11,10 @@ class resultScene extends Phaser.Scene {
         //this.add.text(50, 300, "of the boss's mobile phone and succeeded in getting your salary and extra money.");
         //this.add.text(50, 400, "But are you doing the right thing?");
 
-        var btn_test_end = this.add.text(250, 550, 'No!').setInteractive();
+        var btn_test_end = this.add.text(250, 500, 'No!', { fontSize: '20px', fill: '#f00' }).setInteractive();
         btn_test_end.on('pointerdown', () => { this.scene.start('endPage'); });
 
-        var btn_test_end = this.add.text(450, 550, 'Still No!').setInteractive();
+        var btn_test_end = this.add.text(450, 500, 'Still No!', { fontSize: '20px', fill: '#f00' }).setInteractive();
         btn_test_end.on('pointerdown', () => { this.scene.start('endPage'); });
     }
 }
